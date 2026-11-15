@@ -35,11 +35,11 @@ jobs:
         run: flutter analyze --no-fatal-infos
       - name: Run tests
         run: flutter test
-      - name: Build release APK
-        run: flutter build apk --release
-      - name: Upload APK artifact
+      - name: Build installable debug APK for device testing
+        run: flutter build apk --debug
+      - name: Upload installable debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: madhesh-patro-android-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: madhesh-patro-android-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
           if-no-files-found: error
